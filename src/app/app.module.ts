@@ -12,7 +12,7 @@ import { AboutComponent } from './about/about.component';
 import {HttpClientModule} from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { TrainDetailsComponent } from './train/train-details/train-details.component';
-import { TicketDetailsComponent } from './train/ticket-details/ticket-details.component';
+import { TicketFormComponent } from './train/ticket-form/ticket-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { TicketDetailsComponent } from './train/ticket-details/ticket-details.co
     TicketListComponent,
     AboutComponent,
     TrainDetailsComponent,
-    TicketDetailsComponent
+    TicketFormComponent
   ],
   imports: [
     BrowserModule,

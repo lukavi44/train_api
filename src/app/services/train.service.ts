@@ -39,4 +39,12 @@ export class TrainService {
       })
     );
   }
+
+  getOneTrain(id: number): Observable<Train> {
+    return this.http.get(`${baseUrl}/trains/${id}`).pipe(
+      map((data: any) => {
+        return new Train(data);
+      })
+    )
+  }
 }

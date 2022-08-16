@@ -1,1 +1,61 @@
-<p>train-list works!</p>
+<div class="row">
+    <div class="col">
+        <form #forma="ngForm">
+            <div class="form-group">
+                <label for="from">From</label>
+                <select class="form-select" id="from" name="selectInput" [(ngModel)]="params.filter.from"
+                    (change)="getAllTrains()">
+                    <option value="">Any</option>
+                    <option *ngFor="let i of stations" value="{{i.name}}">{{i.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="to">To</label>
+                <select class="form-select" id="to" name="selectInput2" [(ngModel)]="params.filter.to"
+                    (change)="getAllTrains()">
+                    <option value="">Any</option>
+                    <option *ngFor="let i of stations" value="{{i.name}}">{{i.name}}</option>
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Number</th>
+                    <th scope="col">From</th>
+                    <th scope="col">Departure</th>
+                    <th scope="col">To</th>
+                    <th scope="col">Arrival</th>
+                    <th scope="col">Travels</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Price</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let train of trains">
+                    <td scope="row">{{train.number}}</td>
+                    <td scope="row">{{train.from}}</td>
+                    <td scope="row">{{train.departure | date : 'dd.MM.yyyy HH:mm'}}</td>
+                    <td scope="row">{{train.to}}</td>
+                    <td scope="row">{{train.arrival | date : 'dd.MM.yyyy HH:mm'}}</td>
+                    <td scope="row">{{train.travels}}</td>
+                    <td scope="row">
+                        <img *ngIf="train.type == 'inter-city'" src="assets/images/{{ train.type }}.svg" alt="" />
+                        <img *ngIf="train.type == 'brzi'" src="assets/images/{{ train.type }}.jpg" alt="" />
+                        <img *ngIf="train.type == 'regio'" src="assets/images/{{ train.type }}.jpg" alt="" />
+                    </td>
+                    <td scope="row">{{train.price}}</td>
+                    <td><button class="btn btn-secondary" [routerLink]=[train._id]>Details</button></td>
+                    <td><button class="btn btn-success" [routerLink]="['/ticket-form', train._id]">Buy Ticket</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

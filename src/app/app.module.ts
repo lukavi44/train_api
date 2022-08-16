@@ -9,6 +9,10 @@ import { TrainListComponent } from './train/train-list/train-list.component';
 import { TicketListComponent } from './train/ticket-list/ticket-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AboutComponent } from './about/about.component';
+import {HttpClientModule} from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+import { TrainDetailsComponent } from './train/train-details/train-details.component';
+import { TicketDetailsComponent } from './train/ticket-details/ticket-details.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +21,16 @@ import { AboutComponent } from './about/about.component';
     NavbarComponent,
     TrainListComponent,
     TicketListComponent,
-    AboutComponent
+    AboutComponent,
+    TrainDetailsComponent,
+    TicketDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,102 @@
-<p>ticket-form works!</p>
+<form novalidate #forma="ngForm" class="my-4 d-flex mx-auto flex-column align-items-center justify-content-center flex-grow-1" style="width: 45rem;">
+    <div class="mb-3" style="width: 100%;">
+      <label for="ticketNumber" class="form-label">Train Number: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="ticketNumber"
+        name="ticketNumber"
+        [(ngModel)]="ticket.number"
+        disabled= disabled;
+      />
+    </div>
+    <div class="mb-3 d-flex" style="width: 100%;">
+      <div class="col">
+          <label for="trainFrom" class="form-label">From: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="trainFrom"
+            name="trainFrom"
+            [(ngModel)]="ticket.from"
+            disabled= disabled;
+          />
+      </div>
+      <div class="col">
+          <label for="trainDeparture" class="form-label">Departure: </label>
+          <input 
+            type="text"
+            class="form-control"
+            id="trainDeparture"
+            name="trainDeparture"
+            [(ngModel)]="ticket.departure"
+            disabled= disabled;
+          />
+      </div>
+    </div>
+    <div class="mb-3 d-flex" style="width: 100%;">
+      <div class="col">
+          <label for="trainTo" class="form-label">To: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="trainTo"
+            name="trainTo"
+            [(ngModel)]="ticket.to"
+            disabled= disabled;
+          />
+      </div>
+      <div class="col">
+          <label for="trainArrival" class="form-label">Arrival:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="trainArrival"
+            name="trainArrival"
+            [(ngModel)]="ticket.arrival"
+            disabled= disabled;
+          />
+      </div>
+    </div>
+    <div class="mb-3" style="width: 100%;">
+      <label for="trainPrice" class="form-label">Price: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="trainPrice"
+        name="trainPrice"
+        [(ngModel)]="ticket.price"
+        disabled= disabled;
+      />
+    </div>
+    <div class="mb-3" style="width: 100%;">
+      <label for="ticketName" class="form-label">Name: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="ticketName"
+        name="ticketName"
+        required
+        [(ngModel)]="ticket.name"
+      />
+    </div>
+    <div class="mb-3" style="width: 100%;">
+      <label for="ticketBirthDate" class="form-label">Birth Date: </label>
+      <input
+        type="date"
+        class="form-control"
+        id="ticketBirthDate"
+        name="ticketBirthDate"
+        required
+  
+        [(ngModel)]="ticket.birthDate"
+      />
+      
+    </div>
+  
+    <button class="btn btn-danger" 
+    (click)="postRequest()"
+    [disabled]="forma.invalid">
+      Buy ticket
+    </button>
+  </form>
